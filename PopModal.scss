@@ -1,0 +1,88 @@
+@import "../../sass/functions.scss";
+@import "../../sass/animate.scss";
+@import "../../sass/rem.scss";
+
+.pop-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 100vw;
+  z-index: 998;
+  background-color: rgba(0, 0, 0, 0.5);
+
+  .modal {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100vw;
+    font-weight: 600;
+    background-color: #FFFFFF;
+    -webkit-animation: 0.25s up;
+    animation: 0.25s up;
+
+    &.fade {
+      @include transition(all 0.25s linear);
+      @include translate(0, 100vh);
+    }
+
+    .context {
+      padding: px2rem(16) px2rem(20) px2rem(60);
+      text-align: left;
+
+      .title {
+        line-height: px2rem(28);
+        font-size: px2rem(20);
+        font-weight: 600;
+      }
+
+      .text {
+        margin-top: px2rem(6);
+        line-height: px2rem(22);
+        font-size: px2rem(16);
+        color: #999999;
+        font-weight: normal;
+      }
+    }
+  }
+
+  .modal-foot {
+    padding-bottom: px2rem(8);
+    text-align: center;
+
+    .fbtn {
+      width: px2rem(176);
+      line-height: px2rem(44);
+      text-align: center;
+      color: #FFFFFF;
+      padding: 0;
+      @include border-radius(4px);
+
+      &:first-child {
+        margin-right: px2rem(8);
+      }
+
+      &.long {
+        width: px2rem(357);
+        margin: 0;
+      }
+    }
+
+    .red {
+      background-color: #cc4444;
+    }
+
+    .orange {
+      background-color: #f6a100;
+    }
+  }
+}
+@keyframes up {
+  0% {
+    @include translate(0, 100vh);
+  }
+
+  100% {
+    @include translate(0, 0);
+  }
+}
